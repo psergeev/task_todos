@@ -54,9 +54,15 @@ export class TodoItemComponent  implements OnInit {
     this.saveModel();
   }
 
-  public changeItemStatus(item: TodoItemModel) {
+  public changeItemStatus(event: Event, item: TodoItemModel) {
+
     item.status = (item.status === ItemStatus.ACTIVE) ? ItemStatus.COMPLETED : ItemStatus.ACTIVE;
-    this.saveModel();
+
+    if (item.status === ItemStatus.COMPLETED) {
+      this._showCatAndSaveModel(event.target);
+    } else {
+      this.saveModel();
+    }
   }
 
   public saveModel(saveComplete?: Function) {
@@ -64,8 +70,20 @@ export class TodoItemComponent  implements OnInit {
       if (saveComplete) {
         saveComplete();
       }
-
       this._navbarService.reloadTodos();
     });
+  }
+
+  private _showCatAndSaveModel(el: EventTarget) {
+    let random = Math.random();
+    let img = $('<img class="stupid_cat_animation">')
+      .attr('src', `http://thecatapi.com/api/images/get?format=src&type=gif&random=${random}`)
+      .load(() => setTimeout(() => {
+        img.remove();
+        img = undefined;
+        this.saveModel();
+      }, 2000));
+
+    img.insertAfter($(el));
   }
 }

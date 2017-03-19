@@ -1,4 +1,4 @@
-Demo task without bonus section
+Demo task with bonus section
 
 
 ```bash

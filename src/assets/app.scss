@@ -34,3 +34,14 @@
   opacity: 0.5;
   text-decoration: line-through;
 }
+
+.checkbox {
+  position: relative;
+}
+
+.stupid_cat_animation {
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: 1;
+}
