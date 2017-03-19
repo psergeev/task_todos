@@ -1,5 +1,13 @@
 Demo task without bonus section
 
-to run demo:
-npm install
-gulp serve.prod
+
+```bash
+$ git clone --depth 1 https://github.com/psergeev/task_todos.git
+
+$ cd task_todos
+
+# install the project's dependencies
+$ npm install
+
+# run it
+$ npm serve.prod
