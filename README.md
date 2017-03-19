@@ -10,4 +10,4 @@ $ cd task_todos
 $ npm install
 
 # run it
-$ npm serve.prod
+$ gulp serve.prod
