@@ -17,5 +17,5 @@ export interface ITodoItem {
 })
 export class TodoItemModel extends BaseModel<ITodoItem> implements ITodoItem {
   public name: string;
-  status: string;
+  public status: string;
 }

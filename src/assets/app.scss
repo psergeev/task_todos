@@ -29,3 +29,8 @@
     opacity: 0;
   }
 }
+
+.completed {
+  opacity: 0.5;
+  text-decoration: line-through;
+}

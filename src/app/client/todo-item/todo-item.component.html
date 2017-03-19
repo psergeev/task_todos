@@ -24,7 +24,7 @@
           [(data)]="item.name"
           [controlType]="InlineEditControlType.TEXT"
           (onSave)="saveModel($event)">
-          <h4 class="m-r-sm">{{ item.name }}</h4>
+          <h4 class="m-r-sm" [ngClass]="{ completed: item.status === ItemStatus.COMPLETED }">{{ item.name }}</h4>
         </demo-inline-edit>
       </label>
     </div>
