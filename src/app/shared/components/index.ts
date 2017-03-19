@@ -1,0 +1,47 @@
+import { LayoutComponent } from './layout/layout.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ThrobberComponent } from './throbber/throbber.component';
+import { InlineEditComponent } from './inline-edit/inline-edit.component';
+
+export const SharedComponents = [
+  LayoutComponent,
+  NavbarComponent,
+  // ToolbarComponent,
+  // BreadcrumbsComponent,
+  ThrobberComponent,
+  // FiltersComponent,
+  // SearchComponent,
+  // HSelectComponent,
+  // InstrumentAttributesComponent,
+  // Select2Component,
+  // SecurityPopoverComponent,
+  // InstrumentPopoverComponent,
+  // ParticipantPopoverComponent,
+  // WizardComponent,
+  // WizardStepComponent,
+  // ErrorPage404Component,
+  // SecurityInstrumentDetailsComponent,
+  // MetaDataDetailsComponent,
+  // ParticipantBalanceComponent,
+  // SystemInfoWidgetComponent,
+  // ParticipantInfoWidgetComponent,
+  // BalanceInfoWidgetComponent,
+  // ConfirmModalComponent,
+  // MetaDataComponent,
+  // SecurityAttributesComponent,
+  // OrderVolumePriceComponent,
+  // CheckOrderComponent,
+  // CollapsePanelComponent,
+  // SmartTooltipComponent,
+  // CollapsePanelTitleComponent,
+  // CollapsePanelContentComponent,
+  // GridComponent,
+  // GridPaginationComponent,
+  // GridColumnSorterComponent,
+  // GridColumnToggleComponent,
+  // InstrumentInfoComponent,
+  // UserRolesComponent,
+  // UserRolesAdminComponent,
+  InlineEditComponent,
+  // DatePickerComponent
+];

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="<%= APP_BASE %>">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= APP_TITLE %></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&lang=en' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body>
+
+  <demo-app>
+    <div class="middle-box text-center animated fadeInDown text-white">
+      <h2>Loading...</h2>
+    </div>
+  </demo-app>
+
+  <script>
+    // Fixes undefined module function in SystemJS bundle
+    function module() {
+    }
+  </script>
+
+  <!-- shims:js -->
+  <!-- endinject -->
+
+  <% if (BUILD_TYPE === 'dev') { %>
+  <script src="<%= APP_BASE %>app/system-config.js"></script>
+  <% } %>
+
+  <!-- libs:js -->
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <!-- endinject -->
+
+  <% if (BUILD_TYPE === 'dev') { %>
+  <script>
+    System.import('<%= BOOTSTRAP_MODULE %>')
+      .catch(function (e) {
+        console.error(e.stack || e,
+          'Not expecting this error? Report it at https://github.com/mgechev/angular2-seed/issues');
+      });
+  </script>
+  <% } %>
+</body>
+</html>

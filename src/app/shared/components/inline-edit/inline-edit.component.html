@@ -1,0 +1,63 @@
+<table>
+  <tr>
+    <td>
+      <div *ngIf="!editMode">
+        <ng-content></ng-content>
+      </div>
+      <div class="form-group-sm"
+           *ngIf="editMode">
+        <div [ngSwitch]="controlType">
+          <div *ngSwitchCase="InlineEditControlType.SELECT">
+            <select class="form-control input-sm"
+                    [(ngModel)]="data"
+                    [ngModelOptions]="{standalone: true}"
+                    (change)="save()"
+                    [disabled]="isSaving">
+              <template [ngIf]="selectItems">
+                <option *ngFor="let item of selectItems"
+                        [ngValue]="item">
+                  <template [ngTemplateOutlet]="selectItemTemplate"
+                            [ngOutletContext]="{itemValue: item}">
+                  </template>
+                </option>
+              </template>
+            </select>
+          </div>
+          <div *ngSwitchDefault>
+            <input [(ngModel)]="data"
+                   [ngModelOptions]="{standalone: true}"
+                   [type]="getInputType(controlType)"
+                   [min]="numberMinValue"
+                   [max]="numberMaxValue"
+                   [maxlength]="maxLength"
+                   style="max-width: 150px"
+                   required>
+          </div>
+        </div>
+      </div>
+    </td>
+    <td>
+      <button type="button"
+              class="btn btn-xs btn-white m-t-none m-r-xxs m-l-xs"
+              *ngIf="!editMode"
+              [ngClass]="{'disabled': isSaving}"
+              (click)="startEdit($event)"><i class="fa fa-pencil" aria-hidden="true"></i>
+      </button>
+      <div class="text-right" *ngIf="editMode">
+        <button type="button"
+                class="btn btn-white m-t-none m-l-xs m-r-xxs"
+                [ngClass]="{
+                'btn-xs': controlType !== InlineEditControlType.SELECT,
+                'btn-sm': controlType === InlineEditControlType.SELECT
+                }"
+                (click)="cancelEdit($event)"><i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+        <button type="button" *ngIf="controlType !== InlineEditControlType.SELECT"
+                class="btn btn-xs btn-white m-t-none m-l-xxs m-r-xxs"
+                [ngClass]="{'disabled': isSaving}"
+                (click)="save($event)"><i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+      </div>
+    </td>
+  </tr>
+</table>

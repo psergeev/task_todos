@@ -1,0 +1,28 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+
+  <demo-throbber *ngIf="!isLoaded"></demo-throbber>
+
+
+  <div class="sidebar-collapse" *ngIf="isLoaded">
+    <ul class="nav">
+      <li class="nav-header">
+        <div class="profile-element">
+          <h4><a (click)="addTodo()">+ {{ 'T_NEW_LIST' | translate }}</a></h4>
+        </div>
+      </li>
+
+      <li [routerLinkActive]="'active'" *ngIf="todos?.length">
+        <ul class="nav">
+          <li [routerLinkActive]="'active'"
+              *ngFor="let todo of todos.array">
+            <a [routerLink]="['/todo-item', todo.id]">
+              <i class="fa fa-list-alt"></i>
+              <span class="nav-label">{{ todo.name }} ({{ todo.uncompletedItems }})</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+

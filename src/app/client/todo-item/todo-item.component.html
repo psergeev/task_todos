@@ -1,0 +1,33 @@
+<demo-throbber *ngIf="!isLoaded"></demo-throbber>
+
+<div *ngIf="isLoaded">
+  <demo-inline-edit
+    [(data)]="model.name"
+    [controlType]="InlineEditControlType.TEXT"
+    (onSave)="saveModel($event)">
+    <h3 class="m-r-sm">{{ model.name }}</h3>
+  </demo-inline-edit>
+  <hr>
+
+  <div class="m-b-lg">
+    <h4><a (click)="addItem()">{{ 'T_NEW_ITEM' | translate }}</a></h4>
+  </div>
+
+  <div *ngFor="let item of model.items; let index = index">
+    <div class="checkbox">
+      <input type="checkbox"
+             [checked]="item.status === ItemStatus.COMPLETED"
+             (click)="changeItemStatus(item)"
+             [id]="index">
+      <label [attr.for]="index">
+        <demo-inline-edit
+          [(data)]="item.name"
+          [controlType]="InlineEditControlType.TEXT"
+          (onSave)="saveModel($event)">
+          <h4 class="m-r-sm">{{ item.name }}</h4>
+        </demo-inline-edit>
+      </label>
+    </div>
+    </div>
+
+</div>
